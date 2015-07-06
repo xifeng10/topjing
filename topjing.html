@@ -17,14 +17,11 @@
 </script>
 <style>
 .menu {
-	width: 100%;
-	z-index: 1;
+	z-index: 9999999;
 }
 
 .menuFixed {
 	position: fixed;
-	top: 0;
-	left: 0;
 }
 
 #menu_wrap {
@@ -41,12 +38,25 @@
 body {
 	background-image: url(images/background.jpg);
 }
+a:link {
+ text-decoration: none;
+}
+a:visited {
+ text-decoration: none;
+}
+a:hover {
+ text-decoration: none;
+}
+a:active {
+ text-decoration: none;
+}
 </style>
 <script>
 	$(window).scroll(function() {
 		var menu_top = $('#menu_wrap').offset().top;
-		if ($(window).scrollTop() >= menu_top) {
+		if ($(window).scrollTop() > menu_top) {
 			$('.menu').addClass('menuFixed')
+			$('.menu').css({'left':$('#menu_wrap').offset().left,'width':$('#menu_wrap').css('width')});
 		} else {
 			$('.menu').removeClass('menuFixed')
 		}
@@ -56,7 +66,7 @@ body {
 <body data-spy="scroll" data-target="#bs-example-navbar-collapse-1" style="background-color: floralwhite;">
 	<div class="container clearfix">
 		<div id="menu_wrap">
-			<div class="menu menuFixed">
+			<div class="menu">
 				<nav class="navbar navbar-default" role="navigation">
 				<div class="container">
 					<div class="navbar-header">
@@ -83,9 +93,10 @@ body {
 				</nav>
 			</div>
 		</div>
-		<div style="padding-bottom: 10px; padding-top: 10px" id="products">
+		<div style="padding-bottom: 10px; padding-top: 50px" id="products">
 			<div class="row">
 				<div class="col-sm-6 col-md-3">
+                	<a href="socks.html">
 					<div class="thumbnail">
 						<img src="images/socks/socks7.jpg" alt="Cinque Terre" />
 						<div class="caption" style="padding: 0px;">
@@ -94,6 +105,7 @@ body {
 								align="center">袜子</div>
 						</div>
 					</div>
+                    </a>
 				</div>
 				<div class="col-sm-6 col-md-3">
 					<div class="thumbnail">
