@@ -6,4 +6,4 @@ sex=sex(re)
 birthday=birthday(re)
 email=email(re)
 address=address(re)
-productList=Product List
+productList=product List

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" ng-app>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<script src="js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript"
+	src="js/jquery.i18n.properties-min-1.0.9.js"></script>
+  <script>
+	var app = angular.module("testint", []);
+	function test($scope) {
+		$scope.info = null;
+		jQuery.i18n.properties({// 加载资浏览器语言对应的资源文件
+			name : 'messageResources', // 资源文件名称
+			language : 'en_US', //默认为英文当改为zh_CN时页面显示中文语言
+			path : 'resources/', // 资源文件路径
+			mode : 'map', // 用 Map 的方式使用资源文件中的值
+			callback : function() {// 加载成功后设置显示内容
+				$scope.info = $.i18n.map;
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<div ng-controller="test">
+		{{info.address}} <br>{{info.firstName}}<br>
+		{{info.language}}
+	</div>
+</body>
+</html>
